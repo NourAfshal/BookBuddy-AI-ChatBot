@@ -1,8 +1,8 @@
 # Arabic PDF Question-Answering Chatbot (BookBuddy AI)
 
-Overview: This chatbot is an intelligent assistant designed to help Arabic-speaking users ask questions about Arabic content in PDF files. It's ideal for students, researchers, and readers who want to extract knowledge from books, reports, or historical documents—without reading the entire text.
+*Overview:* This chatbot is an intelligent assistant designed to help Arabic-speaking users ask questions about Arabic content in PDF files. It's ideal for students, researchers, and readers who want to extract knowledge from books, reports, or historical documents—without reading the entire text.
 
-Key Features:
+**Key Features:**
 - PDF Upload: Users can upload any Arabic PDF—books, articles, or documents.
 - Smart Q&A: The chatbot allows users to type in a question and get accurate, concise answers based on the content of the uploaded PDF.
 - Context-Aware: Users can optionally specify the last page they’ve read to avoid spoilers or limit the scope of the answer.

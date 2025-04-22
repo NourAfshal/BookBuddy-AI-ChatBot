@@ -11,6 +11,7 @@ export default function App() {
   const [question, setQuestion] = useState('');
   const [lastPage, setLastPage] = useState('');
   const [output, setOutput] = useState('');
+  const [audioUrl, setAudioUrl] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async () => {
@@ -26,6 +27,7 @@ export default function App() {
 
     setIsLoading(true);
     setOutput('⏳ جاري توليد الإجابة...');
+    setAudioUrl(null); // Reset any previous audio
 
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 120000);
@@ -37,13 +39,16 @@ export default function App() {
         signal: controller.signal,
       });
 
-      clearTimeout(timeoutId); 
+      clearTimeout(timeoutId);
 
       const data = await response.json();
       console.log("📡 Response from backend:", data);
 
       if (data.answer) {
         setOutput(data.answer);
+        if (data.audioUrl) {
+          setAudioUrl(`${process.env.REACT_APP_API_URL}${data.audioUrl}`);
+        }
       } else if (data.error) {
         setOutput(`❌ خطأ: ${data.error}`);
       } else {
@@ -86,6 +91,7 @@ export default function App() {
         output={output}
         handleSubmit={handleSubmit}
         isLoading={isLoading}
+        audioUrl={audioUrl}
       />
     </div>
   );
